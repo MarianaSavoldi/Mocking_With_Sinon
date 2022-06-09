@@ -4,7 +4,7 @@ const fs = require("fs");
 const proxyquire = require("proxyquire");
 const fileManagement = require("./file.management");
 
-describe("File Management", () => {
+describe.skip("File Management", () => {
   afterEach(() => {
     sinon.restore();
   });
@@ -29,7 +29,7 @@ describe("File Management", () => {
       expect(writeSpy.notCalled).to.be.true;
     });
 
-    it.skip('Should call writeFileSync - injected', () => {
+    it('Should call writeFileSync - injected', () => {
       const writeSpy = sinon.spy(fs, 'writeFileSync');
       fileManagement.createFileInjected('test.txt', fs);
 
